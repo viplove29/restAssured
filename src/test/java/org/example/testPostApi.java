@@ -8,11 +8,18 @@ import static io.restassured.RestAssured.given;
 public class testPostApi {
 
     @Test
-    public void testGetApi() {
+    public void testPostApi() {
         String endpoint="https://reqres.in/api/users";
-        ValidatableResponse response = given().
+        String body = """
+                {
+                      "name": "viplove2",
+                      "job": "leader"
+                  }
+                """;
+
+        ValidatableResponse response1 = given().body(body).
                 when().post(endpoint).then();
-        response.log().body();
+        response1.log().body();
 
     }
 }

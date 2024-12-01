@@ -11,7 +11,15 @@ public class testGetApi {
     @Test
     public void testGetApi() {
         String endpoint="https://reqres.in/api/users";
-        ValidatableResponse response = given().queryParam("page", 2).when().get(endpoint).then();
+        ValidatableResponse response = given().queryParam("page", 452).when().get(endpoint).then();
+        response.log().body();
+
+    }
+
+    @Test
+    public void testGetSingleUserApi() {
+        String endpoint="https://reqres.in/api/users/881";
+        ValidatableResponse response = given().when().get(endpoint).then();
         response.log().body();
 
     }
