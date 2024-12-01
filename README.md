@@ -15,7 +15,7 @@
 3 - Validating API Responses
 
 4 – Verifying Fields of Response 
-  Hamcrest Matchers           http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/Matchers.html
-  Hamcrest notNullValue()     http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/Matchers.html#notNullValue()
-  Hamcrest greaterThan()      http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/Matchers.html#greaterThan(T)
-  Hamcrest equalTo()          http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/Matchers.html#equalTo(T)
+  - Hamcrest Matchers           http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/Matchers.html
+  - Hamcrest notNullValue()     http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/Matchers.html#notNullValue()
+  - Hamcrest greaterThan()      http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/Matchers.html#greaterThan(T)
+  - Hamcrest equalTo()          http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/Matchers.html#equalTo(T)
