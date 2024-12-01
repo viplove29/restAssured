@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class testPutApi {
 
   @Test
-  public void testPutApi() {
+  public void testPutApiTest() {
     String endpoint = "https://reqres.in/api/users/2";
     String body =
         """

@@ -8,10 +8,17 @@ import org.junit.jupiter.api.Test;
 
 public class testGetApi {
   @Test
-  public void testGetApi() {
+  public void testGetApiTest() {
     String endpoint = "https://reqres.in/api/users";
     ValidatableResponse response =
-        given().queryParam("page", 452).when().get(endpoint).then().assertThat().statusCode(200);
+        given()
+            .queryParam("page", 1)
+            .when()
+            .get(endpoint)
+            .then()
+            .assertThat()
+            .statusCode(200)
+            .body("data.email", hasItem("janet.weaver@reqres.in"));
     response.log().body();
   }
 
@@ -27,6 +34,6 @@ public class testGetApi {
             .statusCode(200)
             .body("data.id", equalTo(3))
             .body("data.email", equalTo("emma.wong@reqres.in"));
-    System.out.println(response.log().body());
+    response.log().body();
   }
 }

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class testDeleteApi {
 
   @Test
-  public void testDeleteApi() {
+  public void testDeleteApiTest() {
     String endpoint = "https://reqres.in/api/users/2";
     ValidatableResponse responseDelete =
         given().when().delete(endpoint).then().assertThat().statusCode(204);
