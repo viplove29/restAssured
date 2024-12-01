@@ -1,11 +1,10 @@
 package org.example;
 
-import static io.restassured.RestAssured.given;
-
+import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.Test;
 
-public class testPostApi {
+public class postApiTest {
 
   @Test
   public void testPostApiTest() {
@@ -19,7 +18,7 @@ public class testPostApi {
                     """;
 
     ValidatableResponse responsePost =
-        given().body(body).when().post(endpoint).then().assertThat().statusCode(201);
+        RestAssured.given().body(body).when().post(endpoint).then().assertThat().statusCode(201);
     responsePost.log().body();
     responsePost.log().everything();
   }
