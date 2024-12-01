@@ -1,7 +1,7 @@
 **Getting Started with Rest-Assured**
 
 1 - The Challenge with API Testing Book Response
-    -https://www.googleapis.com/books/v1/volumes?q=isbn:9781451648546
+    -https://reqres.in/
 
 
 2 – 
