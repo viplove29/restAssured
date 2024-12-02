@@ -15,11 +15,28 @@ public class postApiTest {
                           "name": "viplove2",
                           "job": "leader"
                       }
-                    """;
-
+                    """; // The multi-line string format using triple quotes (""") for JSON (or any text)
+    // was introduced in Java 15 as part of the Text Blocks feature
     ValidatableResponse responsePost =
         RestAssured.given().body(body).when().post(endpoint).then().assertThat().statusCode(201);
     responsePost.log().body();
     responsePost.log().everything();
+  }
+
+  @Test
+  public void testPostRegisterApiTest() {
+    String endpoint1 = "https://reqres.in/api/register";
+    String body1 =
+        """
+                    {
+                        "email": "eve.holt@reqres.in",
+                        "password": "pistol"
+                    }
+                        """;
+
+    ValidatableResponse responsePost1 =
+        RestAssured.given().body(body1).when().post(endpoint1).then().assertThat().statusCode(400);
+    responsePost1.log().body();
+    responsePost1.log().everything();
   }
 }
