@@ -1,8 +1,5 @@
 package org.example;
 
-import static org.hamcrest.Matchers.*;
-
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
 import org.hamcrest.Matchers;
@@ -14,7 +11,6 @@ public class getApiTest {
     String endpoint = "https://reqres.in/api/users";
     ValidatableResponse response =
         RestAssured.given()
-            .filter(new AllureRestAssured())
             .queryParam("page", 1)
             .when()
             .get(endpoint)
