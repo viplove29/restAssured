@@ -1,5 +1,8 @@
 package org.example;
 
+import static org.hamcrest.Matchers.lessThan;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.Test;
@@ -12,14 +15,30 @@ public class putApiTest {
     String body =
         """
                 {
-                       "name": "morpheus",
+                       "name": "morpheusViplove",
                        "job": "zion resident"
                    }
                         """;
 
     ValidatableResponse responsePut =
-        RestAssured.given().body(body).when().put(endpoint).then().assertThat().statusCode(200);
+        RestAssured.given()
+            .header("Content-Type", "application/json")
+            .body(body)
+            .when()
+            .put(endpoint)
+            .then()
+            .assertThat()
+            .statusCode(200)
+            .time(lessThan(3000L));
+
+    // Logging response details
+    responsePut.log().ifValidationFails();
     responsePut.log().body();
-    responsePut.log().everything();
+
+    String name = responsePut.extract().path("name");
+    assertEquals("morpheusViplove", name);
+
+    String job = responsePut.extract().path("job");
+    assertEquals("zion resident", job);
   }
 }

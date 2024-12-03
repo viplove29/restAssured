@@ -35,7 +35,14 @@ public class postApiTest {
                         """;
 
     ValidatableResponse responsePost1 =
-        RestAssured.given().body(body1).when().post(endpoint1).then().assertThat().statusCode(400);
+        RestAssured.given()
+            .header("Content-Type", "application/json")
+            .body(body1)
+            .when()
+            .post(endpoint1)
+            .then()
+            .assertThat()
+            .statusCode(200);
     responsePost1.log().body();
     responsePost1.log().everything();
   }
