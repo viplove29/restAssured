@@ -4,6 +4,8 @@ import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class patchApiTest {
 
   @Test
@@ -12,15 +14,30 @@ public class patchApiTest {
     String body =
         """
                 {
-                       "name": "morpheus",
+                       "name": "viplove",
                        "job": "zion resident3333"
                    }
                         """;
 
     ValidatableResponse responsePatch =
-        RestAssured.given().body(body).when().patch(endpoint).then().assertThat().statusCode(200);
+        RestAssured.given()
+            .header("Content-Type", "application/json")
+            .body(body)
+            .when()
+            .patch(endpoint)
+            .then()
+            .assertThat()
+            .statusCode(200);
+
+
+    // Logging response details
+    responsePatch.log().ifValidationFails();
     responsePatch.log().body();
-    responsePatch.log().status();
-    responsePatch.log().everything();
+
+    String name = responsePatch.extract().path("name");
+    assertEquals("viplove", name);
+
+    String job = responsePatch.extract().path("job");
+    assertEquals("zion resident3333", job);
   }
 }
