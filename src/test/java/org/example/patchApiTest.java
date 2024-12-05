@@ -1,10 +1,10 @@
 package org.example;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import io.restassured.RestAssured;
 import io.restassured.response.ValidatableResponse;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class patchApiTest {
 
@@ -28,7 +28,6 @@ public class patchApiTest {
             .then()
             .assertThat()
             .statusCode(200);
-
 
     // Logging response details
     responsePatch.log().ifValidationFails();

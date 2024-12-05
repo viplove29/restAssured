@@ -8,9 +8,20 @@ public class deleteApiTest {
 
   @Test
   public void testDeleteApiTest() {
-    String endpoint = "https://reqres.in/api/users/2";
+
+    // Base URL for the API
+    RestAssured.baseURI = "https://reqres.in";
+
+    String endpoint = "/api/users/2";
+
     ValidatableResponse responseDelete =
-        RestAssured.given().when().delete(endpoint).then().assertThat().statusCode(204);
+        RestAssured.given()
+            .header("Content-Type", "application/json")
+            .when()
+            .delete(endpoint)
+            .then()
+            .assertThat()
+            .statusCode(204);
     responseDelete.log().body();
     responseDelete.log().everything();
   }
